@@ -1,0 +1,51 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="card mt-3 mx-auto" style="max-width: 400px;">
+    <article class="card-body">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        <p class="text-center">Get started with your free account</p>
+        <form method="POST" action="">
+        {% csrf_token %}
+        <p class="text-danger text-center">
+            {% if form.errors %}
+                {% for error in form.password2.errors%}
+                <p class="text-danger text-center">{{error}}</p>
+                {% endfor %}
+                {% for error in form.username.errors%}
+                <p class="text-danger text-center">{{error}}</p>
+                {% endfor %}
+            {% endif %}
+        </p>        
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input name="username" class="form-control" placeholder="Username" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="password1" class="form-control" placeholder="Create password" type="password">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="password2" class="form-control" placeholder="Repeat password" type="password">
+        </div> <!-- form-group// -->      
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <textarea name="bio" class="form-control rounded-0" placeholder="Bio"
+                id="exampleFormControlTextarea2" rows="5" ></textarea>
+        </div> <!-- form-group// -->                                
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+        </div> <!-- form-group// -->                                                                          
+    </form>
+    </article>
+</div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    background-color: #fdfdfd;
+}
+
+header {
+    box-sizing: border-box; 
+    background: url(images/blog-header-background.jpg) no-repeat center top /cover;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}   
+
+nav{
+    float: right;
+}
+
+.menu{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.menu li{
+    float: left;
+    display: block;
+    margin-right: 60px;
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-body{
+    box-sizing: border-box; 
+    box-shadow: 0 16px 48px #E3E7EB;
+    float: right;
+}
+
+.user-info{
+   font-size: 22px;
+   text-align: center 
+}

@@ -1,0 +1,30 @@
+{% extends 'base_generic.html' %}
+
+
+{% block content %}
+<div class="card mt-3">
+    <div class="card-body">
+        <h4 class="card-title mt-3 text-center">Create new post</h4>
+        <form method="POST" action="">
+            {% csrf_token %}     
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input name="title" class="form-control" placeholder="Title" type="text">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <textarea name="content" class="form-control rounded-0" placeholder="Content"
+                    id="exampleFormControlTextarea2" rows="10" ></textarea>
+            </div> <!-- form-group// -->  
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Save </button>
+            </div> <!-- form-group// -->                                                                   
+        </form>
+    </div>
+</div>    
+{% endblock content %}
+    

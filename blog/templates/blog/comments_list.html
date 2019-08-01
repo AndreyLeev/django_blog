@@ -1,0 +1,12 @@
+<article class="py-3">
+    {% if comments_list %}
+        <h4 class="card-title mt-3 text-left">Comments</h4>
+        {% for comment in comments_list %}
+            <div class="p-3 mb-3"  style="box-shadow: 0 16px 48px #E3E7EB;">
+                <a href="{{post.author.get_absolute_url}}"
+                    class="card-text text-muted h6">{{ comment.author }} - {{comment.comment_date}}</a>
+                <p class="card-text">{{comment.content}}</p>
+            </div>    
+        {% endfor %}
+    {% endif %}
+</article>

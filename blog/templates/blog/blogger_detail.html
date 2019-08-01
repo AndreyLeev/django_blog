@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+{% block content %}  
+<div class="mt-4">
+    <h2 class="card-title">Blogger: {{blogger}}</h2>
+    <h2 class="card-title">Bio:</h2>            
+    <p class="card-text ">{{blogger.bio}}</p>
+    <h2 class="card-title">Posts list:</h2>
+    <ul>
+        {% for pos in newest_post_list %}
+            <li><a href="{{pos.get_absolute_url}}">{{pos}}</a> ({{pos.post_date}})</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

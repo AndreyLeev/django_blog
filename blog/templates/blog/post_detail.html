@@ -1,0 +1,47 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+{% load static %}
+    <script src="{% static 'blog/js/comments.js' %}"></script>
+<div>
+    <div class="card my-3"> 
+        <div class="card-body ">
+            <div class="">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class=" text-muted">{{ post.author }} | {{ post.post_date }}</p>
+                <p class="card-text ">{{ post.content}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="my-4">
+        {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'blog:comment_create' post.id %}" id="post-form">
+                {% csrf_token %}     
+                <div class="form-group">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <textarea id="comment-content" name="content" class="form-control rounded-0" placeholder="Create comment" rows="3"></textarea>        
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right"> Save </button>
+                </div>                                                                    
+            </form>
+        {% else %}
+                <a href="{% url 'login' %}?next={{request.path}}">Login to add a new comment</a>
+        {% endif %}
+    </div>
+
+    <div id="comments">
+        <script>
+            function load_comments() {
+                $('#comments').load('{% url "blog:comments" post.id %}')
+            };
+            window.setInterval(load_comments, 3000);
+        </script>
+    </div>
+
+</div>
+
+
+{% endblock content %}

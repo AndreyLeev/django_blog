@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'blog/posts_list.css' %}">
+
+<div>
+    <h2 class="display-3 m-3">All posts</h2>
+    {% for post in newest_post_list %}
+        <div class="post">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <a href="{{post.author.get_absolute_url}}"
+                class="card-text text-muted h6">{{ post.author }} - {{post.post_date}}</a>
+            <p class="card-text">{{post.content|slice:":200" }}...</p>
+            <a href="{{post.get_absolute_url}}" class="btn btn-primary">Read More &rarr;</a>
+        </div>    
+    {% endfor %}
+</div>
+{% include 'pagination.html' %}
+
+{% endblock %}
+

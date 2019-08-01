@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+{% load static %}   
+    <link rel="stylesheet" href="{% static 'blog/bloggers_list.css' %}">
+<div class="">
+    <h2 class="display-3 m-3">All bloggers</h2>
+    {% for blogger in bloggers_list %}
+        <div class="token">
+            <h2 class="card-title">{{blogger}}</h2>
+            <p class="card-text">{{blogger.bio|slice:":200" }}</p>
+            <a href="{{ blogger.get_absolute_url }} "" class="btn btn-primary">Visit</a>
+        </div>
+    {% endfor %}
+</div>    
+{% include 'pagination.html' %}
+{% endblock content %}
