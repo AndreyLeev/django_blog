@@ -11,6 +11,6 @@ Any user can list all bloggers, all blogs, and detail for bloggers and blogs (in
 
 * Django
 * Python
-** SQLite(Development)/PostgreSQL(Production Heorku)
+* SQLite(Development)/PostgreSQL(Production Heorku)
 * [Python Social Auth - Django](https://github.com/python-social-auth/social-app-django)
 * Bootstrap
